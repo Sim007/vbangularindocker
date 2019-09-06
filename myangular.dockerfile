@@ -6,12 +6,12 @@ WORKDIR /app
 COPY package.json package.json
 RUN npm install && npm cache clean --force
 COPY . .
-#RUN npm run build --prod
-CMD [ "node","ng build","--prod" ]
+RUN npm run build --prod
+#CMD [ "node","ng build","--prod"]
 
-##### Stage 2 - run app
-#FROM nginx:alpine
-COPY --from=Angular /app/dist/ /usr/share/nginx/html
+##### Stage 2 - build static files
+FROM nginx:alpine
+COPY --from=Angular /app/dist/vbAngularInDocker /usr/share/nginx/html
 
 # build:    docker build -t myangular -f myangular.dockerfile .
 # run:      docker container run -d --rm --name myangular -p 4200:80 myangular

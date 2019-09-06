@@ -1,6 +1,6 @@
 # Dockerize Angular App - the wrong way for production
 FROM node:10.16.3-alpine as node
-LABEL author="Johannes Sim"
+LABEL author="Johannes Sim from OSS"
 WORKDIR /app
 COPY package.json package.json
 RUN npm install
