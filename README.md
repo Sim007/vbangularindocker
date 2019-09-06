@@ -1,4 +1,16 @@
 # VbAngularInDocker
+In this repo you see how you can dockerize an angular app 
+
+#Use this repo
+Clone this repo:
+```
+git clone https://github.com/Sim007/vbangularindocker.git
+```
+#Dockerize an Angular straight forward
+You can dockerize an Angular app as you would do it on your laptop.
+
+
+# Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
