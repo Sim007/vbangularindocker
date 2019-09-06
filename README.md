@@ -48,7 +48,7 @@ Since Docker Desktop version 2 there is also new buildkit.
 You can use this with the command docker buildx.
 In this case you can use:
 ```
-docker image build -t angulardevx .
+docker image buildx -t angulardevx .
 ```
 Run it with:
 ```
