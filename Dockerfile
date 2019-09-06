@@ -9,4 +9,4 @@ EXPOSE 4200
 CMD ["npm", "start", "--", "--host", "0.0.0.0", "--poll", "500"]
 
 # build docker image build -t angulardev .
-# run   docker container run -d -p:4200:4200 angulardev
+# run   docker container run --rm -d -p:4200:4200 angulardev

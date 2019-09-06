@@ -10,10 +10,10 @@ COPY . .
 CMD [ "node","ng build","--prod" ]
 
 ##### Stage 2 - run app
-FROM nginx:alpine
-COPY --from=Angular /app/dist/APM /usr/share/nginx/html
+#FROM nginx:alpine
+COPY --from=Angular /app/dist/ /usr/share/nginx/html
 
-# docker build -t myangular -f myangular.dockerfile .
-# docker container run -d --rm --name myangular -p 4200:80 myangular
+# build:    docker build -t myangular -f myangular.dockerfile .
+# run:      docker container run -d --rm --name myangular -p 4200:80 myangular
 
-# docker buildx build -t myangular -f myangular.dockerfile .
+# buildx:   docker buildx build -t myangular -f myangular.dockerfile .
