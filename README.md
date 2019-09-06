@@ -44,7 +44,18 @@ The angular app need some time to start. After that you can see the app in a bro
 http://localhost:4200
 ```
 
-This case is to learn how to build a Dockerfile but you will not use it for production or to build Angular Apps.
+Since Docker Desktop version 2 there is also new buildkit.
+You can use this with the command docker buildx.
+In this case you can use:
+```
+docker image build -t angulardevx .
+```
+Run it with:
+```
+docker container run --rm -d -p:4200:4200 angulardevx
+```
+
+This case is to learn how to build a Dockerfile but you will not use it for production.
 
 # Dockerize for production - multistage build
 
@@ -54,7 +65,7 @@ So can use a so called multistage build file.
 You build the angular app for production in one container.
 Then you make another container based on nginx webserver.
 
-An template look like:
+An DockerFile can looks like:
 ```
 ##### Angular App 
 ##### Stage 1 - build app
@@ -96,6 +107,17 @@ For a change the workflow can be:
 You will see that Docker make use of its cache. There times you don't want to use the cache. 
 ```
 docker build -t myangular -f myangular.dockerfile . --no-cache
+```
+
+Since Docker Desktop version 2 there is also new buildkit.
+You can use this with the command docker buildx.
+In this case you can use:
+```
+docker image build -t angulardevx .
+```
+Run it with:
+```
+docker container run --rm -d -p:4200:4200 angulardevx
 ```
 
 # Build an angular app in a container with data in container
