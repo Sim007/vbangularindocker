@@ -1,14 +1,16 @@
 # VbAngularInDocker
 In this repo you see how you can dockerize an angular app
-1) Dockerize an Angular straight forward
+1) Dockerize an Angular app for development
 2) Dockerize for production - multistage build
+3) Code and build an angular app in a container
+4) Code on laptop and build an angular app in a container
 
 # Use this repo
 Clone this repo:
 ```
 git clone https://github.com/Sim007/vbangularindocker.git
 ```
-# Dockerize an Angular straight forward
+# Dockerize an Angular for development
 You can dockerize an Angular app as you would do it on your laptop.
 Steps you will do are:
 - you have angular environment
@@ -131,11 +133,7 @@ Run it with:
 ```
 docker container run -d --rm --name myangular1 -p 4201:80 myangular
 ```
-
-
-
-# Build an angular app in a container with data in container
-
-
-
-# Build an angular app in a contaier with data on laptop
+  
+# Code and build an angular app in a container
+  
+# Code on laptop and build an angular app in a container
