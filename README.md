@@ -1,5 +1,7 @@
 # VbAngularInDocker
-In this repo you see how you can dockerize an angular app 
+In this repo you see how you can dockerize an angular app
+1) Dockerize an Angular straight forward
+2) Dockerize for production - multistage build
 
 # Use this repo
 Clone this repo:
@@ -14,9 +16,13 @@ Steps you will do are:
 - copy the package.json
 - npm install
 - copy the files
-- run the ng serve
+- run ng serve
 
-Each Dockerfile starts with FROM. We will take a base image with Linux OS alpine and node. Check dockerhub for the tags 
+Each Dockerfile starts with FROM. 
+We will take a base image with Linux OS 
+- alpine
+- node
+Check dockerhub for the tags 
 
 The Dockerfile can look like this:
 ```
@@ -34,12 +40,13 @@ You can build the container image with:
 docker image build -t angulardev .
 ```
 
-You can run a container with:
+You can run the container with:
 ```
 docker container run --rm -d -p:4200:4200 angulardev
 ```
 
-The angular app need some time to start. After that you can see the app in a browser with:
+The angular app need some time to start. 
+After that you can see the app in a browser with:
 ```
 http://localhost:4200
 ```
@@ -52,20 +59,20 @@ docker buildx build -t angulardevx .
 ```
 Run it with:
 ```
-docker container run --rm -d -p:4200:4200 angulardevx
+docker container run --rm -d -p:4201:4201 angulardevx
 ```
 
-This case is to learn how to build a Dockerfile but you will not use it for production.
+This part is to learn how to build a Dockerfile but you will not use it for production environments
 
 # Dockerize for production - multistage build
 
-For production you only need a webserver and static generated files.
+For a angular app in production you only need a webserver and static generated files.
 
-So can use a so called multistage build file.
-You build the angular app for production in one container.
-Then you make another container based on nginx webserver.
+So you can use a so called multistage build.
+You build the angular app for production in one container image.
+Then you make another container image based on a nginx webserver (base image).
 
-An DockerFile can looks like:
+An DockerFile can looks like this:
 ```
 ##### Angular App 
 ##### Stage 1 - build app
@@ -87,10 +94,6 @@ In this directory you can build the angular app for production with:
 ```
 docker image build -t myangular -f myangular.dockerfile .
 ```
-Or try the buildx version:
-```
-docker buildx build -t myangular -f myangular.dockerfile .
-```
 
 You can run it with:
 ```
@@ -101,14 +104,19 @@ You can see the angular app in browser on port 4200
 ```
 localhost:4200
 ```
-Note: if there is something in cache you can clear this with giving ctrl-F5
+Note: if there is something in cache you can clear this with ctrl-F5
 
-For a change the workflow can be:
-- make a change
+A change workflow can be:
+- make a the change
 - build a new container image
 - run the container
 
-You will see that Docker make use of its cache. There times you don't want to use the cache. 
+You will see that Docker make use of its cache..
+```
+docker build -t myangular -f myangular.dockerfile .
+```
+
+There times you don't want to use the cache. 
 ```
 docker build -t myangular -f myangular.dockerfile . --no-cache
 ```
@@ -117,11 +125,11 @@ Since Docker Desktop version 2 there is also new buildkit.
 You can use this with the command docker buildx.
 In this case you can use:
 ```
-docker image build -t angulardevx .
+docker buildx build -t myangular -f myangular.dockerfile .
 ```
 Run it with:
 ```
-docker container run --rm -d -p:4200:4200 angulardevx
+docker container run -d --rm --name myangular1 -p 4201:80 myangular
 ```
 
 # Build an angular app in a container with data in container
