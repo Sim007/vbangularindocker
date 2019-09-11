@@ -116,7 +116,7 @@ You will see that Docker make use of its cache..
 docker build -t myangular -f myangular.dockerfile .
 ```
 
-There times you don't want to use the cache. 
+There are times you don't want to use the cache. 
 ```
 docker build -t myangular -f myangular.dockerfile . --no-cache
 ```
@@ -132,6 +132,10 @@ Run it with:
 docker container run -d --rm --name myangular1 -p 4201:80 myangular
 ```
 
+
+
 # Build an angular app in a container with data in container
+
+
 
 # Build an angular app in a contaier with data on laptop
