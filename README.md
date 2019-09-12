@@ -1,5 +1,7 @@
 # VbAngularInDocker
-In this repo you see how you can dockerize an angular app
+In this repo you see how you can dockerize an angular app.  
+
+It consists of the following parts:
 1) Dockerize an Angular app for development
 2) Dockerize an Angular app for production - multistage build
 3) Code and build an angular app in a container
@@ -23,7 +25,7 @@ Steps to take are:
 Each Dockerfile starts with FROM. 
 We will take a base image with Linux OS 
 - alpine
-- node  
+- node.js 
 Check dockerhub for the tags 
 
 The Dockerfile can look like this:
