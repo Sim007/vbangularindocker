@@ -93,7 +93,7 @@ FROM nginx:alpine
 COPY --from=Angular /app/dist/vbAngularInDocker /usr/share/nginx/html
 ```
 Notes:
-- The angular build will put your static app files in a subdirectory ./dist/name of project
+- The angular build will put your static app files in a subdirectory ./dist/name of your project
 
 In this directory you can build the angular app for production with:
 ```
