@@ -67,7 +67,7 @@ Run it with:
 docker container run --rm -d -p:4201:4201 angulardevx
 ```
 
-This part is to learn how to build a Dockerfile but you will not use it for production environments
+This part was to learn how to build a Dockerfile but you will not use this container for production.
 
 # Dockerize for production - multistage build
 
