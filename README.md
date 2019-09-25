@@ -25,7 +25,8 @@ Steps to take are:
 Each Dockerfile starts with FROM. 
 We will take a base image with Linux OS 
 - alpine
-- node.js 
+- node.js
+
 Check dockerhub for the tags 
 
 The Dockerfile can look like this:
